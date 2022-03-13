@@ -1,0 +1,11 @@
+$ cat Dockerfile 
+FROM ubuntu:18.04
+
+WORKDIR /usr/src/app
+
+CMD apt update && apt upgrade -y && apt install curl -y && echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;
+
+
+
+
+docker run -it curler

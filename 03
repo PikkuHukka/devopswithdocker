@@ -1,0 +1,8 @@
+§ docker run -it devopsdockeruh/simple-web-service:ubuntu
+
+
+$ docker exec -it friendly_sammet bash
+
+
+2022-01-15 23:36:12 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'

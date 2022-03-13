@@ -1,0 +1,17 @@
+FROM ubuntu
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+EXPOSE 5000
+
+# Install node, found from the internet
+RUN apt update
+RUN apt upgrade -y
+RUN apt install curl -y
+RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash -
+RUN apt install -y nodejs
+RUN npm install
+RUN npm run build
+RUN npm install -g serve
+
+
+docker run -p 5000:5000 example-frontend serve -s -l 5000 build

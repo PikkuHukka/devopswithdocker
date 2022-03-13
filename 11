@@ -1,0 +1,6 @@
+FROM openjdk:11
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+EXPOSE 8080
+RUN ./mvnw package
+CMD ["java", "Main"]

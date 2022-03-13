@@ -1,0 +1,26 @@
+
+FROM ubuntu
+COPY . /usr/src/myapp
+WORKDIR /usr/local
+EXPOSE 8080
+
+SHELL ["/bin/bash", "-c"]
+
+
+RUN apt-get update
+RUN apt-get install wget -y
+
+RUN wget https://go.dev/dl/go1.17.6.linux-amd64.tar.gz -O - | tar -xz
+
+
+ENV PATH=$PATH:/usr/local/go/bin
+
+RUN go version
+WORKDIR /usr/src/myapp
+
+RUN go build
+
+
+
+
+#start with docker build . -t example-backend && docker run -p 8080:8080 example-backend ./server
